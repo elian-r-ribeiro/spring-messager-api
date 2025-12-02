@@ -1,0 +1,7 @@
+spring:
+    application:
+      name: spring-messager-api
+    mvc:
+      apiversion:
+        use:
+          header: apiVersion
