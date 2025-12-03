@@ -1,9 +1,9 @@
 package com.ely.spring_messager_api.dto;
 
-public record MessagerResponseDto(
-        String addressee,
+public record RequestToTemplateApiDto(
         String name,
         String title,
-        String description
+        String description,
+        String type
 ) {
 }

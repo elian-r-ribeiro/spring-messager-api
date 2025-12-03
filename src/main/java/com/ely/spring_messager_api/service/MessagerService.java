@@ -1,7 +1,7 @@
 package com.ely.spring_messager_api.service;
 
+import com.ely.spring_messager_api.converter.RequestsConverter;
 import com.ely.spring_messager_api.dto.MessagerRequestDto;
-import com.ely.spring_messager_api.dto.MessagerResponseDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -11,12 +11,13 @@ public class MessagerService {
     private final RestClient restClient = RestClient.create();
     String baseUri = "http://localhost:3030/templates";
 
-    public MessagerResponseDto handleMessagerRequest(MessagerRequestDto data) {
+    public String handleMessagerRequest(MessagerRequestDto data) {
+
         return restClient
                 .post()
                 .uri(baseUri)
-                .body(data)
+                .body(RequestsConverter.fromMessagerRequestDtoToTemplateApiRequestDto(data))
                 .retrieve()
-                .body(MessagerResponseDto.class);
+                .body(String.class);
     }
 }

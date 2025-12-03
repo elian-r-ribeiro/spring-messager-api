@@ -4,6 +4,7 @@ public record MessagerRequestDto(
         String addressee,
         String name,
         String title,
-        String description
+        String description,
+        String type
 ) {
 }
