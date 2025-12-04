@@ -13,9 +13,9 @@ public class MessagerService {
 
     public MessagerResponseDto handleMessagerRequest(MessagerRequestDto data) {
 
-        String templateApiResponse = makeTemplateApiRequest(data);
+        String templatesApiResponse = makeTemplateApiRequest(data);
 
-        return MessagerConverter.toMessagerResponseDto(data, templateApiResponse);
+        return MessagerConverter.toMessagerResponseDto(data, templatesApiResponse);
     }
 
     private String makeTemplateApiRequest(MessagerRequestDto data) {
