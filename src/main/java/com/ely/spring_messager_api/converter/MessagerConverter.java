@@ -19,6 +19,7 @@ public class MessagerConverter {
     public static MessagerResponseDto toMessagerResponseDto(MessagerRequestDto dto, String template) {
         return new MessagerResponseDto(
                 dto.addressee(),
+                dto.sender(),
                 dto.name(),
                 dto.title(),
                 dto.description(),

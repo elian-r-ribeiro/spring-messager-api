@@ -1,7 +1,22 @@
 spring:
-    application:
-      name: spring-messager-api
-    mvc:
-      apiversion:
-        use:
-          header: apiVersion
+  application:
+    name: spring-messager-api
+  mvc:
+    apiversion:
+      use:
+        header: apiVersion
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: elianrodriguesribeiro@gmail.com
+    password: qrepibjdhfwkqmyb
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  amqp:
+    deserialization:
+      trust:
+        all: true
