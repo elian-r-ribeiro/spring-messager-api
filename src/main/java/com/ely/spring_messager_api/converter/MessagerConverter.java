@@ -18,8 +18,9 @@ public class MessagerConverter {
 
     public static MessagerResponseDto toMessagerResponseDto(MessagerRequestDto dto, String template) {
         return new MessagerResponseDto(
+                "A tarefa será feita em segundo plano",
                 dto.addressee(),
-                dto.sender(),
+                dto.subject(),
                 dto.name(),
                 dto.title(),
                 dto.description(),

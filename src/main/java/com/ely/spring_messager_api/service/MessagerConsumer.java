@@ -16,16 +16,18 @@ public class MessagerConsumer {
     private final JavaMailSender mailSender;
 
     @RabbitListener(queues = RabbitConfig.QUEUE_EMAIL)
-    public void receiveMessage(MessagerResponseDto data) {
+    private void receiveMessage(MessagerResponseDto data) {
+        sendEmail(data);
+    }
 
+    private void sendEmail(MessagerResponseDto data) {
         try {
             MimeMessage mime = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mime, true, "UTF-8");
 
             helper.setTo(data.addressee());
-            helper.setFrom(data.sender());
-            helper.setSubject("Mensagem automática");
-            helper.setText(data.template(), true); // HTML = true
+            helper.setSubject(data.subject());
+            helper.setText(data.template(), true);
 
             mailSender.send(mime);
 
